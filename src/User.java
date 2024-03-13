@@ -5,7 +5,7 @@ public class User {
     private String username;
     private String playerName;
     private int userID;
-    private int goldCoins = 1000;
+    private int goldCoins = 500;
     private int XP;
     private List<Character> army;
     private int cartTotal = 0;
@@ -26,7 +26,7 @@ public class User {
         this.username = username;
         this.playerName = playerName;
         this.userID = userID;
-        this.goldCoins = 1000; // Initialize with 0 gold coins
+        this.goldCoins = 500; // Initialize with 0 gold coins
         this.XP = 0; // Initialize with 0 XP
     }
 
