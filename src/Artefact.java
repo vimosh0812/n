@@ -6,18 +6,18 @@ public class Artefact extends Equipment {
 
 class Excaliber extends Artefact {
     Excaliber() {
-        super("Excaliber", 500, 20, 0, 0, 0);
+        super("Excaliber", 150, 2, 0, 0, 0);
     }
 }
 
 class Amulet extends Artefact {
     Amulet() {
-        super("Amulet", 300, 0, 0, 0, 10);
+        super("Amulet", 200, 1, -1, 1, 1);
     }
 }
 
 class Crystal extends Artefact {
     Crystal() {
-        super("Crystal", 400, 0, 0, 0, 20);
+        super("Crystal", 210, 2, 1, -1, -1);
     }
 }
