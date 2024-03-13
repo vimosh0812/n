@@ -43,6 +43,7 @@ public class playBattle {
     public String minVariable1 = "";
     String playground="";
     String minVariable2="";
+    String minVariable3="";
 
     // Boolean archdead = false;
     // Boolean magedead = false;
@@ -60,23 +61,7 @@ public class playBattle {
     int opponentcount=0;
     String homeland;
     playBattle(User user, User opponent){
-        int turn=20;
-        // System.out.println("Starting battle in...");
-        // //countdown();
-        // System.out.println(user.getPlayerName() + " vs " + opponent.getPlayerName());
-        // System.out.println();
-        //  System.out.println(user.getArcher().getSpeed());
-        //  System.out.println(user.getMage().getSpeed());
-        //  System.out.println(user.getKnight().getSpeed());
-        //  System.out.println(user.getHealer().getSpeed());
-        //  System.out.println(user.getMythicalCreature().getSpeed());
-        
-        //  System.out.println(user.getArcher().getAttack());
-        //  System.out.println(user.getMage().getAttack());
-        //  System.out.println(user.getKnight().getAttack());
-        //  System.out.println(user.getHealer().getAttack());
-        //  System.out.println(user.getMythicalCreature().getAttack());
-
+        int turn = 1;
          Archhealth = opponent.getArcher().getHealth();
          Magehealth = opponent.getMage().getHealth();
          Knighthealth = opponent.getKnight().getHealth();
@@ -89,15 +74,21 @@ public class playBattle {
          Healerhealthuser = user.getHealer().getHealth();
          Mythicalhealthuser = user.getMythicalCreature().getHealth();
 
+            String RESET = "\033[0m";  // Text Reset
+            String GREEN = "\033[0;32m";  // GREEN
+            String YELLOW = "\033[0;33m";  // YELLOW
+            String CYAN = "\033[0;36m";  // CYAN
+            String RED = "\033[0;31m";  // RED
+
         String homeland=opponent.getPlayground().getName(); 
-        while(turn>0){
-            System.out.println(user.getPlayerName()+"'s turn");
+        while(turn<=20){
+            System.out.println(CYAN+user.getPlayerName()+"'s turn - " + (turn/2+1)+RESET);
             Attack(user, opponent,homeland);
-            turn--;
-            System.out.println("----------------------");
-            System.out.println(opponent.getPlayerName()+"'s turn");
+            turn++;
+            System.out.println("----------------------"); 
+            System.out.println(CYAN+opponent.getPlayerName()+"'s turn - " + turn/2+RESET);
             Attack(opponent, user,homeland);
-            turn--;
+            turn++;
             System.out.println("----------------------");
 
             if(opponentcount==5){
@@ -118,29 +109,12 @@ public class playBattle {
                 System.out.println(opponent.getPlayerName()+"'s remaing coins "+opponent.getGoldCoins());
                 break;
             }
-            else if(turn==0){
+            else if (turn==21){
                 System.out.println("battle is draw");
                 System.out.println(user.getPlayerName()+"'s remaing coins "+user.getGoldCoins());
                 System.out.println(opponent.getPlayerName()+"'s remaing coins "+opponent.getGoldCoins());
             }
         }
-        // System.out.println(opponent.getArcher().getHealth());
-        // System.out.println(opponent.getMage().getHealth());
-        // System.out.println(opponent.getKnight().getHealth());
-        // System.out.println(opponent.getHealer().getHealth());
-        // System.out.println(opponent.getMythicalCreature().getHealth());
-
-        // System.out.println(user.getArcher().getHealth());
-        // System.out.println(user.getMage().getHealth());
-        // System.out.println(user.getKnight().getHealth());
-        // System.out.println(user.getHealer().getHealth());
-        // System.out.println(user.getMythicalCreature().getHealth());
-
-        // Archhealthuser2 = user.getArcher().getHealth();
-        // Magehealthuser2 = user.getMage().getHealth();
-        // Knighthealthuser2 = user.getKnight().getHealth();
-        // Healerhealthuser2 = user.getHealer().getHealth();
-        // Mythicalhealthuser2 = user.getMythicalCreature().getHealth();
          
         opponent.getArcher().setHealth(Archhealth);
         opponent.getMage().setHealth(Magehealth);
@@ -154,55 +128,15 @@ public class playBattle {
         user.getKnight().setHealth(Knighthealthuser);
         user.getHealer().setHealth(Healerhealthuser);
         user.getMythicalCreature().setHealth(Mythicalhealthuser);
-
-        // System.out.println("----------------------");
-        // System.out.println(opponent.getArcher().getHealth());
-        // System.out.println(opponent.getMage().getHealth());
-        // System.out.println(opponent.getKnight().getHealth());
-        // System.out.println(opponent.getHealer().getHealth());
-        // System.out.println(opponent.getMythicalCreature().getHealth());
-
-        // System.out.println(user.getArcher().getHealth());
-        // System.out.println(user.getMage().getHealth());
-        // System.out.println(user.getKnight().getHealth());
-        // System.out.println(user.getHealer().getHealth());
-        // System.out.println(user.getMythicalCreature().getHealth());
-        
-
-        
     }
 
 
     private void Attack(User user, User opponent,String homeland){
         int playcount=0;
-        // if (count/2==0){
-        //     User temp = user;
-        //     user = opponent;
-        //     opponent = temp;
-        //     playcount=playercount;
-        // }else{
-        //     playcount=opponentcount;
-        // }
+        
         if(count==1){
-            System.out.println(user.getPlayerName()+" speed : "+user.getArcher().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getMage().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getKnight().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getHealer().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getMythicalCreature().getSpeed());
-            System.out.println("-----------");
-            System.out.println(user.getPlayerName()+" attack: "+user.getArcher().getAttack());
-            System.out.println(user.getPlayerName()+" attack: "+user.getMage().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getKnight().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getHealer().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getMythicalCreature().getAttack());
-            System.out.println("-----------");
-            System.out.println(user.getPlayerName()+" defence: "+user.getArcher().getDefence());
-            System.out.println(user.getPlayerName()+" defence: "+user.getMage().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getKnight().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getHealer().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getMythicalCreature().getDefence());
-            System.out.println("-----------");
             
+            System.out.println();
             playgroundBattle.buffcharacter(homeland, user.getArcher(), true);
             playgroundBattle.buffcharacter(homeland, user.getKnight(), true);
             playgroundBattle.buffcharacter(homeland, user.getMage(), true);
@@ -214,25 +148,8 @@ public class playBattle {
             playgroundBattle.buffcharacter(homeland, opponent.getMage(), true);
             playgroundBattle.buffcharacter(homeland, opponent.getHealer(), true);
             playgroundBattle.buffcharacter(homeland, opponent.getMythicalCreature(), true);
-
-            System.out.println(user.getPlayerName()+" speed : "+user.getArcher().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getMage().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getKnight().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getHealer().getSpeed());
-            System.out.println(user.getPlayerName()+" speed: "+user.getMythicalCreature().getSpeed());
-            System.out.println("-----------");
-            System.out.println(user.getPlayerName()+" attack: "+user.getArcher().getAttack());
-            System.out.println(user.getPlayerName()+" attack: "+user.getMage().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getKnight().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getHealer().getAttack());
-            System.out.println(user.getPlayerName()+"attack : "+user.getMythicalCreature().getAttack());
-            System.out.println("-----------");
-            System.out.println(user.getPlayerName()+" defence: "+user.getArcher().getDefence());
-            System.out.println(user.getPlayerName()+" defence: "+user.getMage().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getKnight().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getHealer().getDefence());
-            System.out.println(user.getPlayerName()+"defence : "+user.getMythicalCreature().getDefence());
-            System.out.println("-----------");
+            System.out.println();
+            
         }
 
         count+=1;
@@ -252,11 +169,6 @@ public class playBattle {
         if (!user.getArcher().isDead()){
             speeduser.put("A", user.getArcher().getSpeed());
         }
-        // System.out.println(user.getPlayerName()+"Characters and their speed:");
-        // for (Entry<String, Double> entry : speeduser.entrySet()) {
-        //     System.out.println(entry.getKey() + ": " + entry.getValue());
-        // }
-        
         
         Double max= Double.MIN_VALUE;
 
@@ -283,15 +195,6 @@ public class playBattle {
         if (!opponent.getHealer().isDead()) {
             defenceopponent.put("H", opponent.getHealer().getDefence());
         }
-
-        // System.out.println("Characters and their defence:");
-        // for (Entry<String, Double> entry : defenceopponent.entrySet()) {
-        //     System.out.println(entry.getKey() + ": " + entry.getValue());
-        // }
-        
-        
-
-        // Find the variable name with the minimum value
 
         
         Double min= Double.MAX_VALUE;
@@ -351,41 +254,14 @@ public class playBattle {
         System.out.println(user.getPlayerName()+"'s "+Userchar+" is fighting with "+opponent.getPlayerName()+"'s "+Oppchar);
         double damage;
 
-        // if (maxVariable == "A"){
-        //     System.out.println(Archspeed);
-            
-        // }
-        // else if (maxVariable == "K"){
-        //     System.out.println(Knightspeed);
-        // }
-        // else if (maxVariable == "M"){
-        //     System.out.println(Magespeed);
-        // }
-        // else if (maxVariable == "H"){
-        //     System.out.println(Healerspeed);
-        // }
-        // else if (maxVariable=="My"){
-        //     System.out.println(Mythicalspeed);
-        // }
 
         if (maxVariable!="H"){
             damage = (0.5*(Attackuser)) - (0.1*(Defenceopp));
-            String formattedString = String.format("%.1f", damage);
-
-            // Parse the formatted string back to double
-            damage= Double.parseDouble(formattedString);
+            damage = round(damage);
+            System.out.println("damage: "+damage);
 
             if (minVariable == "A"){
-                // System.out.println(opponent.getArcher().getHealth() + " damage " + damage);
                 opponent.getArcher().getdamage(damage);
-                // System.out.println(opponent.getArcher().getHealth());
-                // if (opponent.getArcher().getHealth()<=0){
-                //     System.out.println("archer is dead");
-                // }
-                // else
-                //     {
-                //         System.out.println("archer helath is"+ opponent.getArcher().getHealth());
-                //     }
             }
             else if (minVariable == "K"){
                 opponent.getKnight().getdamage(damage);
@@ -429,48 +305,84 @@ public class playBattle {
                 }
             }
 
-            double Healthuser = 0.1*(user.getHealer().getAttack());
-            String formattedString = String.format("%.1f", Healthuser);
+            double healAmount = 0.1*(user.getHealer().getAttack());
 
-            // Parse the formatted string back to double
-            Healthuser= Double.parseDouble(formattedString);
-
+            healAmount=round(healAmount);
             if (minVariable1 == "A" && !user.getArcher().isDead()) {
-                // Healthuser=user.getArcher().getHealth();
-                user.getArcher().increasehealth(Healthuser);
+                
+                user.getArcher().increasehealth(healAmount);
                 
 
                 
             }
             else if (minVariable1 == "K" && !user.getKnight().isDead()){
-                // Healthuser=user.getKnight().getHealth();
-                user.getKnight().increasehealth(Healthuser);
+                
+                user.getKnight().increasehealth(healAmount);
 
             }
             else if (minVariable1 == "M" && !user.getMage().isDead()){
-                // Healthuser=user.getMage().getHealth();
-                user.getMage().increasehealth(Healthuser);
+                
+                user.getMage().increasehealth(healAmount);
 
             }
-            // else if (minVariable1 == "H"){
-            //     // Healthuser=user.getHealer().getHealth();
-            //     Healerhealth+=Healthuser;
-            // }
+            
             else if(!user.getMythicalCreature().isDead()){
-                // Healthuser=user.getMythicalCreature().getHealth();
-                user.getMythicalCreature().increasehealth(Healthuser);
+                
+                user.getMythicalCreature().increasehealth(healAmount);
             }
             
 
 
         }
-        
-        // playgroundBattle.buffcharacter(opponent.getPlayground().getName(), user.getArcher(), opponent.getArcher(), false);
-        // playgroundBattle.buffcharacter(opponent.getPlayground().getName(), user.getKnight(), opponent.getKnight(), false);
-        // playgroundBattle.buffcharacter(opponent.getPlayground().getName(), user.getMage(), opponent.getMage(), false);
-        // playgroundBattle.buffcharacter(opponent.getPlayground().getName(), user.getHealer(), opponent.getHealer(), false);
-        // playgroundBattle.buffcharacter(opponent.getPlayground().getName(), user.getMythicalCreature(), opponent.getMythicalCreature(), false);
-        
+
+        if (minVariable=="A" && opponent.getArcher().isDead()){
+            playcount+=1;
+        }
+        if (minVariable=="K"  && opponent.getKnight().isDead()){
+            playcount+=1;
+        }
+        if (minVariable=="M"  && opponent.getMage().isDead()){
+            playcount+=1;
+        }
+        if (minVariable=="H"  && opponent.getHealer().isDead()){
+            playcount+=1;
+        }
+        if (minVariable=="My"  && opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
+            playcount+=1;
+        }
+
+        if (minVariable=="A" && !opponent.getArcher().isDead()){
+            System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName()+" health is "+round(opponent.getArcher().getHealth()));
+        }
+        if (minVariable=="K"  && !opponent.getKnight().isDead()){
+            System.out.println(opponent.getPlayerName()+"'s "+opponent.getKnight().getName()+" health is "+round(opponent.getKnight().getHealth()));
+        }
+        if (minVariable=="M"  && !opponent.getMage().isDead()){
+            System.out.println(opponent.getPlayerName()+"'s "+opponent.getMage().getName()+" health is "+round(opponent.getMage().getHealth()));
+        }
+        if (minVariable=="H"  && !opponent.getHealer().isDead()){
+            System.out.println(opponent.getPlayerName()+"'s "+opponent.getHealer().getName()+" health is "+round(opponent.getHealer().getHealth()));
+        }
+        if (minVariable=="My"  && !opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
+            System.out.println(opponent.getPlayerName()+"'s "+opponent.getMythicalCreature().getName()+" health is "+round(opponent.getMythicalCreature().getHealth()));
+        }
+        // if (minVariable=="A" && opponent.getArcher().isDead()){
+        //     playcount+=1;
+        // }
+        // if (minVariable=="K"  && opponent.getKnight().isDead()){
+        //     playcount+=1;
+        // }
+        // if (minVariable=="M"  && opponent.getMage().isDead()){
+        //     playcount+=1;
+        // }
+        // if (minVariable=="H"  && opponent.getHealer().isDead()){
+        //     playcount+=1;
+        // }
+        // if (minVariable=="My"  && opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
+        //     playcount+=1;
+        // }
+
+
         Map<String, Double> newdefenceopponent = new LinkedHashMap<>();
         if (!opponent.getMage().isDead()){
             newdefenceopponent.put("M", opponent.getMage().getDefence());
@@ -491,118 +403,133 @@ public class playBattle {
         for (Map.Entry<String, Double> entry : newdefenceopponent.entrySet()) {
             if (entry.getValue() < min) {
                 min = entry.getValue();
-                minVariable = entry.getKey();
+                minVariable2 = entry.getKey();
             }
         }
         if(maxVariable=="A"){
             if (minVariable2 == "A") {
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
-                double damage3 = damage2-0.1*(opponent.getArcher().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
+                double damage3 = attack2-0.1*(opponent.getArcher().getDefence());
+                damage3=round(damage3);       
+                if(attack2!=0){
                     opponent.getArcher().getdamage(damage3);
                 }
                 
             }
             else if (minVariable2 == "K"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
-                double damage3 = damage2-0.1*(opponent.getKnight().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
+                double damage3 = attack2-0.1*(opponent.getKnight().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getArcher().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "M"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
-                double damage3 = damage2-0.1*(opponent.getMage().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
+                double damage3 = attack2-0.1*(opponent.getMage().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getArcher().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "H"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
-                double damage3 = damage2-0.1*(opponent.getHealer().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
+                double damage3 = attack2-0.1*(opponent.getHealer().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getArcher().getdamage(damage3);
                 }
             }
             else{
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
-                double damage3 = damage2-0.1*(opponent.getMythicalCreature().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getArcher(), false);
+                double damage3 = attack2-0.1*(opponent.getMythicalCreature().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getArcher().getdamage(damage3);
                 }
             }
         }
         if(maxVariable=="K"){
             if (minVariable2 == "A") {
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
-                double damage3 = damage2-0.1*(opponent.getArcher().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
+                double damage3 = attack2-0.1*(opponent.getArcher().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getKnight().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "K"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
-                double damage3 = damage2-0.1*(opponent.getKnight().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
+                double damage3 = attack2-0.1*(opponent.getKnight().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getKnight().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "M"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
-                double damage3 = damage2-0.1*(opponent.getMage().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
+                double damage3 = attack2-0.1*(opponent.getMage().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getKnight().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "H"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
-                double damage3 = damage2-0.1*(opponent.getHealer().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
+                double damage3 = attack2-0.1*(opponent.getHealer().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getKnight().getdamage(damage3);
                 }
             }
             else{
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
-                double damage3 = damage2-0.1*(opponent.getMythicalCreature().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getKnight(), false);
+                double damage3 = attack2-0.1*(opponent.getMythicalCreature().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getKnight().getdamage(damage3);
                 }
             }
         }
         if(maxVariable=="M"){
             if (minVariable2 == "A") {
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
-                double damage3 = damage2-0.1*(opponent.getArcher().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
+                double damage3 = attack2-0.1*(opponent.getArcher().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMage().getdamage(damage3);
                 }
                 
             }
             else if (minVariable2 == "K"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
-                double damage3 = damage2-0.1*(opponent.getKnight().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
+                double damage3 = attack2-0.1*(opponent.getKnight().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMage().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "M"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
-                double damage3 = damage2-0.1*(opponent.getMage().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
+                double damage3 = attack2-0.1*(opponent.getMage().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMage().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "H"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
-                double damage3 = damage2-0.1*(opponent.getHealer().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
+                double damage3 = attack2-0.1*(opponent.getHealer().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMage().getdamage(damage3);
                 }
             }
             else{
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
-                double damage3 = damage2-0.1*(opponent.getMythicalCreature().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMage(), false);
+                double damage3 = attack2-0.1*(opponent.getMythicalCreature().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMage().getdamage(damage3);
                 }
             }
@@ -610,70 +537,116 @@ public class playBattle {
 
         if(maxVariable=="My"){
             if (minVariable2 == "A") {
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
-                double damage3 = damage2-0.1*(opponent.getArcher().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
+                double damage3 = attack2-0.1*(opponent.getArcher().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMythicalCreature().getdamage(damage3);
                 }
                 
             }
             else if (minVariable2 == "K"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
-                double damage3 = damage2-0.1*(opponent.getKnight().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
+                double damage3 = attack2-0.1*(opponent.getKnight().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMythicalCreature().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "M"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
-                double damage3 = damage2-0.1*(opponent.getMage().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
+                double damage3 = attack2-0.1*(opponent.getMage().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMythicalCreature().getdamage(damage3);
                 }
             }
             else if (minVariable2 == "H"){
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
-                double damage3 = damage2-0.1*(opponent.getHealer().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
+                double damage3 = attack2-0.1*(opponent.getHealer().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMythicalCreature().getdamage(damage3);
                 }
             }
             else{
-                double damage2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
-                double damage3 = damage2-0.1*(opponent.getMythicalCreature().getDefence());
-                if(damage2!=0){
+                double attack2 = playgroundBattle.buffcharacter(homeland, user.getMythicalCreature(), false);
+                double damage3 = attack2-0.1*(opponent.getMythicalCreature().getDefence());
+                damage3=round(damage3);
+                if(attack2!=0){
                     opponent.getMythicalCreature().getdamage(damage3);
                 }
             }
         }
         if(maxVariable=="H"){
+            Map<String, Double> healthuser1 = new LinkedHashMap<>();
+            if (!user.getMage().isDead()){
+                healthuser1.put("M", user.getMage().getHealth());
+            }
+            if (!user.getKnight().isDead()){
+                healthuser1.put("K", user.getKnight().getHealth());
+            }
+            if (!user.getArcher().isDead()){
+                healthuser1.put("A", user.getArcher().getHealth());
+            }
+            if (!user.getMythicalCreature().isDead()){
+                healthuser1.put("My", user.getMythicalCreature().getHealth());
+            }
+
+            Double min1= Double.MAX_VALUE;
+
+            for (Map.Entry<String, Double> entry : healthuser1.entrySet()) {
+                if (entry.getValue() < min1) {
+                    min1 = entry.getValue();
+                    minVariable3 = entry.getKey();
+                }
+            }
             if (minVariable1 == "A") {
                 double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
-                user.getArcher().increasehealth(heal);
+                heal=round(heal);
+
+                if (heal!=0){
+                    user.getArcher().increasehealth(heal);
+                }
+
+                
                 
             }
             else if (minVariable1 == "K"){
                 double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
-                user.getKnight().increasehealth(heal);
+                heal=round(heal);
+                
+                if (heal!=0){
+                    user.getKnight().increasehealth(heal);
+                }
             }
             else if (minVariable1 == "M"){
                 double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
-                user.getMage().increasehealth(heal);
+                heal=round(heal);
+                if (heal!=0){
+                    user.getMage().increasehealth(heal);
+                }
             }
-            else if (minVariable1 == "H"){
-                double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
-                user.getHealer().increasehealth(heal);
-            }
+            // else if (minVariable1 == "H"){
+            //     double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
+            //     heal=round(heal);
+            //     if (heal!=0){
+            //         user.getHealer().increasehealth(heal);
+            //     }
+            // }
             else{
                 double heal=playgroundBattle.buffcharacter(homeland, user.getHealer(), false);
-                user.getMythicalCreature().increasehealth(heal);
+                heal=round(heal);
+                if (heal!=0){
+                    user.getMythicalCreature().increasehealth(heal);
+                }
             }
         }
 
 
 
 
-        if(minVariable1 == minVariable2){
+        if(minVariable == minVariable2){
             if (minVariable=="A" && opponent.getArcher().isDead()){
                 playcount+=1;
             }
@@ -689,21 +662,21 @@ public class playBattle {
             if (minVariable=="My"  && opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
                 playcount+=1;
             }
-            //System.out.println(opponent.getPlayerName()+"Characters and their health:");
+            
             if (minVariable=="A" && !opponent.getArcher().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName()+" health is "+opponent.getArcher().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName()+" health is "+round(opponent.getArcher().getHealth()));
             }
             if (minVariable=="K"  && !opponent.getKnight().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getKnight().getName()+" health is "+opponent.getKnight().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getKnight().getName()+" health is "+round(opponent.getKnight().getHealth()));
             }
             if (minVariable=="M"  && !opponent.getMage().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMage().getName()+" health is "+opponent.getMage().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMage().getName()+" health is "+round(opponent.getMage().getHealth()));
             }
             if (minVariable=="H"  && !opponent.getHealer().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getHealer().getName()+" health is "+opponent.getHealer().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getHealer().getName()+" health is "+round(opponent.getHealer().getHealth()));
             }
             if (minVariable=="My"  && !opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMythicalCreature().getName()+" health is "+opponent.getMythicalCreature().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMythicalCreature().getName()+" health is "+round(opponent.getMythicalCreature().getHealth()));
             }
         }else{
             if (minVariable2=="A" && opponent.getArcher().isDead()){
@@ -723,193 +696,54 @@ public class playBattle {
             }
             //System.out.println(opponent.getPlayerName()+"Characters and their health:");
             if (minVariable2=="A" && !opponent.getArcher().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName()+" health is "+opponent.getArcher().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName()+" health is "+round(opponent.getArcher().getHealth()));
             }
             if (minVariable2=="K"  && !opponent.getKnight().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getKnight().getName()+" health is "+opponent.getKnight().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getKnight().getName()+" health is "+round(opponent.getKnight().getHealth()));
             }
             if (minVariable2=="M"  && !opponent.getMage().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMage().getName()+" health is "+opponent.getMage().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMage().getName()+" health is "+round(opponent.getMage().getHealth()));
             }
             if (minVariable2=="H"  && !opponent.getHealer().isDead()){
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getHealer().getName()+" health is "+opponent.getHealer().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getHealer().getName()+" health is "+round(opponent.getHealer().getHealth()));
             }
             if (minVariable2=="My"  && !opponent.getMythicalCreature().isDead()){ //&& !opponent.getArcher().isDead()
-                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMythicalCreature().getName()+" health is "+opponent.getMythicalCreature().getHealth());
+                System.out.println(opponent.getPlayerName()+"'s "+opponent.getMythicalCreature().getName()+" health is "+round(opponent.getMythicalCreature().getHealth()));
             }
         }
-        // System.out.println("archer helath is "+opponent.getArcher().getHealth());
-        // System.out.println("mage helath is "+opponent.getMage().getHealth());
-        // System.out.println("knight helath is "+opponent.getKnight().getHealth());
-        // System.out.println("healer helath is "+opponent.getHealer().getHealth());
-        // System.out.println("mythical creature helath is "+opponent.getMythicalCreature().getHealth());
-
-        // if (opponent.getArcher().isDead()){
-        //     System.out.println(opponent.getPlayerName()+"'s Archer died");
-            
-        // // }else{
-        // //     System.out.println("------------------------------------------------");
-        // //     System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getPlayerName() +"'s health is "+Archhealth);
-        // //     System.out.println(user.getPlayerName()+"'s ");
-        // }
-        // if (opponent.getMage().isDead()){
-        //     System.out.println(opponent.getPlayerName()+"'s Mage died");
-            
-
-        // }//else{
-        //     //System.out.println(opponent.getPlayerName()+"'s "+opponent.getArcher().getName() +"'s health is "+Archhealth);
-
-        // if (opponent.getKnight().isDead()){
-        //     System.out.println(opponent.getPlayerName()+"'s Knight died");
-            
-        // }
-        // if (opponent.getHealer().isDead()){
-        //     System.out.println(opponent.getPlayerName()+"'s Healer died");
-            
-        // }
-        // if (opponent.getMythicalCreature().isDead()){
-        //     System.out.println(opponent.getPlayerName()+"'s Mythical Creature died");
-            
-        // }
+        
 
         if (maxVariable=="A"){
-            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+user.getArcher().getHealth());
-            // if (minVariable=="A" && (opponent.getArcher().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getArcher().getHealth());
-            // }
-            // else if (minVariable=="K" && (!opponent.getKnight().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getKnight().getHealth());
-            // }
-            // else if (minVariable=="M" && (!opponent.getMage().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMage().getHealth());
-            // }
-            // else if (minVariable=="H" && (!opponent.getHealer().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getHealer().getHealth());
-            // }
-            // else if (!opponent.getMythicalCreature().isDead()){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMythicalCreature().getHealth());
-            // }
+            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+round(user.getArcher().getHealth()));
+            
         }
         else if (maxVariable=="K"){
-            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+user.getKnight().getHealth());
-            // if (minVariable=="A" && (!opponent.getArcher().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getArcher().getHealth());
-            // }
-            // else if (minVariable=="K" && (!opponent.getKnight().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getKnight().getHealth());
-            // }
-            // else if (minVariable=="M" && (!opponent.getMage().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMage().getHealth());
-            // }
-            // else if (minVariable=="H" && (!opponent.getHealer().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getHealer().getHealth());
-            // }
-            // else if (!opponent.getMythicalCreature().isDead()){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMythicalCreature().getHealth());
-            // }
+            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+round(user.getKnight().getHealth()));
+            
         }
         else if(maxVariable=="M"){
-            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+user.getMage().getHealth());
-            // if (minVariable=="A" && (!opponent.getArcher().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getArcher().getHealth());
-            // }
-            // else if (minVariable=="K" && (!opponent.getKnight().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getKnight().getHealth());
-            // }
-            // else if (minVariable=="M" && (!opponent.getMage().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMage().getHealth());
-            // }
-            // else if (minVariable=="H" && (!opponent.getHealer().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getHealer().getHealth());
-            // }
-            // else if (!opponent.getMythicalCreature().isDead()){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMythicalCreature().getHealth());
-            // }
+            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+round(user.getMage().getHealth()));
+            
         }
         else if (maxVariable=="H"){
-            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+user.getHealer().getHealth());
-            // if (minVariable=="A" && (!opponent.getArcher().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getArcher().getHealth());
-            // }
-            // else if (minVariable=="K" && (!opponent.getKnight().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getKnight().getHealth());
-            // }
-            // else if (minVariable=="M" && (!opponent.getMage().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMage().getHealth());
-            // }
-            // else if (minVariable=="H" && (!opponent.getHealer().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getHealer().getHealth());
-            // }
-            // else if (!opponent.getMythicalCreature().isDead()){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMythicalCreature().getHealth());
-            // }
+            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+round(user.getHealer().getHealth()));
+            
         }
         else{
-            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+user.getMythicalCreature().getHealth());
-            // if (minVariable=="A" && (!opponent.getArcher().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getArcher().getHealth());
-            // }
-            // else if (minVariable=="K" && (!opponent.getKnight().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getKnight().getHealth());
-            // }
-            // else if (minVariable=="M" && (!opponent.getMage().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMage().getHealth());
-            // }
-            // else if (minVariable=="H" && (!opponent.getHealer().isDead())){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getHealer().getHealth());
-            // }
-            // else if (!opponent.getMythicalCreature().isDead()){
-            //     System.out.println(opponent.getPlayerName()+"'s "+Oppchar +"'s health is "+ opponent.getMythicalCreature().getHealth());
-            // }
+            System.out.println(user.getPlayerName()+"'s "+Userchar+"'s health is "+round(user.getMythicalCreature().getHealth()));
+            
         }
-
-        // if(turn=20)
-        //     if(!user.getMythicalCreature().isDead()){
-        //         opponentcount+=1;
-        //     }
-        //     if(!user.getArcher().isDead()){
-        //         opponentcount+=1;
-        //     }
-        //     if(!user.getKnight().isDead()){
-        //         opponentcount+=1;
-        //     }
-        //     if(!user.getMage().isDead()){
-        //         opponentcount+=1;
-        //     }
-        //     if(!user.getHealer().isDead()){
-        //         opponentcount+=1;
-        //     }
-
-        //     if(!opponent.getArcher().isDead()){
-        //         playercount+=1;
-        //     }
-        //     if(!opponent.getKnight().isDead()){
-        //         playercount+=1;
-        //     }
-        //     if(!opponent.getMage().isDead()){
-        //         playercount+=1;
-        //     }
-        //     if(!opponent.getHealer().isDead()){
-        //         playercount+=1;
-        //     }
-        //     if(!opponent.getMythicalCreature().isDead()){
-        //         playercount+=1;
-        //     }
-        //System.out.println("count ; "+ playcount);
         if (count%2!=0){
             playercount+=playcount;
-            //System.out.println("player count ; "+ playercount);
+            
         }else{
             opponentcount+=playcount;
-            //System.out.println("opponent count; "+ opponentcount);
         }
-
-        // System.out.println("player count ; "+ playercount);
-        // System.out.println("opponent count; "+ opponentcount);
-    
         
     }
 
+    public static double round(double dbl) {
+        return Math.round(dbl * 10.0) / 10.0;
+    }
 
-
-}//this last file dosent give any return , i think the parameters in the playgroundbattle method
+}
