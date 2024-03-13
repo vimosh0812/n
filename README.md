@@ -1,21 +1,14 @@
-  __  __           _   _        __  __             _                    
- |  \/  |         | | (_)      |  \/  |           | |                   
- | \  / |_   _ ___| |_ _  ___  | \  / | __ _ _   _| |__   ___ _ __ ___  
- | |\/| | | | / __| __| |/ __| | |\/| |/ _` | | | | '_ \ / _ \ '_ ` _ \ 
- | |  | | |_| \__ \ |_| | (__  | |  | | (_| | |_| | | | |  __/ | | | | |
- |_|  |_|\__, |___/\__|_|\___| |_|  |_|\__,_|\__, |_| |_|\___|_| |_| |_|
-          __/ |                               __/ |                     
-         |___/                               |___/ 
+
 
 # Mystic Mayhem
 
 Mystic Mayhem is an exciting turn-based strategy game where players build and battle with mystical characters.
 
 ## Team Members Details
--<span style="color:blue">220001C - AADITHYAN M.D.</span> 
--<span style="color:blue">220014T - ABISHAN V.</span> 
--<span style="color:blue">220436 - NIVEDSHANKER K.</span> 
--<span style="color:blue">220667V - VIMOSH V.</span> 
+- <span style="color:blue">220001C - AADITHYAN M.D.</span> 
+- <span style="color:blue">220014T - ABISHAN V.</span> 
+- <span style="color:blue">220436 - NIVEDSHANKER K.</span> 
+- <span style="color:blue">220667V - VIMOSH V.</span> 
 
 ## Features
 
