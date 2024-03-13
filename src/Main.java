@@ -10,28 +10,28 @@ public class Main {
 
     private static void addDemoData() {
 
-        User user1 = new User("vimosh", "VIMOSH", 2000);
+        User user1 = new User("vimosh", "VIMOSH", 220667);
         user1.setHomeland(new Hillcrest());
         user1.createArmy(new Shooter(), new Squire(), new Enchanter(), new Medic(), new Basilisk());
         user1.subtractGoldCoins(480);
         users.add(user1);
 
-        User user2 = new User("abishan", "ABISHAN", 2001);
+        User user2 = new User("abishan", "ABISHAN", 220014);
         user2.setHomeland(new Marshland());
         user2.createArmy(new Ranger(), new Cavalier(), new Illusionist(), new Saint(), new Dragon());
-        user2.subtractGoldCoins(490);
+        user2.subtractGoldCoins(450);
         users.add(user2);
 
-        User user3 = new User("nived", "NIVED", 2002);
+        User user3 = new User("nived", "NIVED", 220436);
         user3.setHomeland(new Desert());
         user3.createArmy(new Sunfire(), new Swiftblade(), new Conjurer(), new Soother(), new Hydra());
-        user3.subtractGoldCoins(470);
+        user3.subtractGoldCoins(430);
         users.add(user3);
 
-        User user4 = new User("aadhi", "AADHI", 2003);
+        User user4 = new User("aadhi", "AADHI", 220001);
         user4.setHomeland(new Arcane());
         user4.createArmy(new Zing(), new Templar(), new Eldritch(), new Lightbringer(), new Pegasus());
-        user4.subtractGoldCoins(450);
+        user4.subtractGoldCoins(400);
         users.add(user4);
     }
     
