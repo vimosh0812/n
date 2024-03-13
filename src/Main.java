@@ -9,6 +9,18 @@ public class Main {
     private static int userID = 1000;
 
     private static void addDemoData() {
+        
+        User user0 = new User("whitewolf", "GeraltofRivia", 220668);
+        user0.setHomeland(new Marshland());
+        user0.createArmy(new Ranger(), new Squire(), new Warlock(), new Medic(), new Dragon());
+        user0.getArcher().setArmour(new Chainmail());
+        user0.getHealer().setArtefact(new Amulet());
+        user0.setGoldcoins(215);
+        user0.setXP(32);
+
+        user0.createArmy(new Shooter(), new Squire(), new Enchanter(), new Medic(), new Basilisk());
+        user0.subtractGoldCoins(480);
+        users.add(user0);
 
         User user1 = new User("vimosh", "VIMOSH", 220667);
         user1.setHomeland(new Hillcrest());
@@ -38,23 +50,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String RESET = "\u001B[0m";
-        String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
-        String RED = "\u001B[31m";
-        System.out.println("");
-        String RESET1 = "\033[0m";  // Text Reset
-        String GREEN1 = "\033[0;32m";  // GREEN
-        System.out.println( GREEN1 +"\r\n" + //
+        String RESET = "\033[0m";  // Text Reset
+        String GREEN = "\033[0;32m";  // GREEN
+        String YELLOW = "\033[0;33m";  // YELLOW
+        String CYAN = "\033[0;36m";  // CYAN
+        String RED = "\033[0;31m";  // RED
+        System.out.println( GREEN +"\r\n" + //
                         "                  _   _                           _                    \r\n" + //
                         "  /\\/\\  _   _ ___| |_(_) ___    /\\/\\   __ _ _   _| |__   ___ _ __ ___  \r\n" + //
                         " /    \\| | | / __| __| |/ __|  /    \\ / _` | | | | '_ \\ / _ \\ '_ ` _ \\ \r\n" + //
                         "/ /\\/\\ \\ |_| \\__ \\ |_| | (__  / /\\/\\ \\ (_| | |_| | | | |  __/ | | | | |\r\n" + //
                         "\\/    \\/\\__, |___/\\__|_|\\___| \\/    \\/\\__,_|\\__, |_| |_|\\___|_| |_| |_|\r\n" + //
-                        "        |___/                               |___/                      \r\n" + //
-                        "" + RESET1);
-
-    
+                        "        |___/                               |___/                      \r" + //
+                        "" + RESET);
+        System.out.println("                                                        From CODE A.N.V");
+        System.out.println(YELLOW+" ______________________________________________________|_._._._._._._._._._.\r\n" + //
+                        " \\_____________________________________________________|_#_#_#_#_#_#_#_#_#_|\r\n" + //
+                        "                                                       l"+RESET);  
         while (true) {
             addDemoData();
             System.out.println();
