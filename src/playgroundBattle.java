@@ -20,9 +20,9 @@ public class playgroundBattle {
         
 
         if (spotter){
-            System.err.println("working-a1");
+            // System.err.println("working-a1");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 if (Highlanders.contains(archer.getName())){
                     archer.increaseAttack(1.0);;
                     archer.increaseDefence(1.0);
@@ -39,7 +39,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Marshland"){
-                System.out.println("i am in marshland");
+                // System.out.println("i am in marshland");
                 // if (Marshlanders.contains(usercharacter.getName())){
                 //     usercharacter.increaseDefence(2.0);
                 //     return 0;
@@ -56,7 +56,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Desert"){
-                System.out.println("i am in desert");
+                // System.out.println("i am in desert");
                 // if (Marshlanders.contains(usercharacter.getName())){
                 //     usercharacter.decreaseHealth(1.0);
                 //     return 0;
@@ -75,13 +75,17 @@ public class playgroundBattle {
                 }
             }
         else{
-            System.err.println("workinga-2");
+            // System.err.println("workinga-2");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                
                 
                 if (Highlanders.contains(archer.getName())){
+                    System.out.println();
+                    System.out.println("EXTRA TURN");
+                    System.out.println();
                     double damage = 0.5*(0.2*archer.attack);
-                    System.out.println("double damage");
+                    damage=playBattle.round(damage);
+                    // System.out.println("double damage");
                         //opponentcharacter.defence -= damage;
                     return damage;
                 }
@@ -101,9 +105,13 @@ public class playgroundBattle {
                 
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                
                 if (Mystics.contains(archer.getName())){
+                    System.out.println();
+                    System.out.println("HEALS AFTER IT'S TURN");
+                    System.out.println();
                     double hel=0.1*archer.getHealth();
+                    hel=playBattle.round(hel);
                     archer.increasehealth(hel);
                     return 0;
                 }
@@ -134,9 +142,9 @@ public class playgroundBattle {
         
 
         if (spotter){
-            System.err.println("workingk-1");
+            // System.err.println("workingk-1");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 if (Highlanders.contains(knight.getName())){
                     knight.increaseAttack(1.0);;
                     knight.increaseDefence(1.0);
@@ -153,7 +161,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Marshland"){
-                System.out.println("i am in marshland");
+                // System.out.println("i am in marshland");
                 if (Marshlanders.contains(knight.getName())){
                     knight.increaseDefence(2.0);
                     return 0;
@@ -170,7 +178,7 @@ public class playgroundBattle {
                 // }
             }
             if (playground == "Desert"){
-                System.out.println("i am in desert");
+                // System.out.println("i am in desert");
                 if (Marshlanders.contains(knight.getName())){
                     knight.decreaseHealth(1.0);
                     return 0;
@@ -190,13 +198,16 @@ public class playgroundBattle {
             // }
         }
         else{
-              System.err.println("workingk-2");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                
                 
                 if (Highlanders.contains(knight.getName())){
+                    System.out.println();
+                    System.out.println("EXTRA TURN");
+                    System.out.println();
                     double damage = 0.5*(0.2*knight.attack);
-                    System.out.println("double damage");
+                    damage=playBattle.round(damage);
+                    // System.out.println("double damage");
                         //opponentcharacter.defence -= damage;
                     return damage;
                 }
@@ -243,12 +254,12 @@ public class playgroundBattle {
         Marshlanders.add("Warlock");
         Mystics.add("Illusionist");
         Mystics.add("Eldritch");
-        System.out.println("---"+Highlanders.size());
+        // System.out.println("---"+Highlanders.size());
 
         if (spotter){
-            System.out.println("workingm-1");
+            // System.out.println("workingm-1");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 if (Highlanders.contains(mage.getName())){
                     mage.increaseAttack(1.0);;
                     mage.increaseDefence(1.0);
@@ -265,7 +276,7 @@ public class playgroundBattle {
                 // }
             }
             if (playground == "Marshland"){
-                System.out.println("i am in marshland");
+                // System.out.println("i am in marshland");
                 if (Marshlanders.contains(mage.getName())){
                     mage.increaseDefence(2.0);
                     return 0;
@@ -282,7 +293,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Desert"){
-                System.out.println("i am in desert");
+                // System.out.println("i am in desert");
                 if (Marshlanders.contains(mage.getName())){
                     mage.decreaseHealth(1.0);
                     return 0;
@@ -294,23 +305,27 @@ public class playgroundBattle {
                 // }
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                // System.out.println("i am in arcane");
                 if (Mystics.contains(mage.getName())){
-                    mage.increaseAttack(2.0);;
+                    mage.increaseAttack(2.0);
                     return 0;
                 }
             }
             }
         }
         else{
-            System.out.println("workingm-2");
+            // System.out.println("workingm-2");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
-                System.out.println(Highlanders.size());
+                // System.out.println("i am in hillcrest");
+                // System.out.println(Highlanders.size());
  
                 if (Highlanders.contains(mage.getName())){
-                    System.out.println("double damage");
+                    // System.out.println("double damage");
+                    System.out.println();
+                    System.out.println("EXTRA TURN");
+                    System.out.println();
                     double damage = 0.5*(0.2*mage.attack);
+                    damage=playBattle.round(damage);
                     return damage;
                 }
                 
@@ -329,9 +344,13 @@ public class playgroundBattle {
                 
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                // System.out.println("i am in arcane");
                 if (Mystics.contains(mage.getName())){
+                    System.out.println();
+                    System.out.println("HEALS AFTER IT'S TURN");
+                    System.out.println();
                     double hel=0.1*mage.getHealth();
+                    hel=playBattle.round(hel);
                     mage.increasehealth(hel);
                     return 0;
                 }
@@ -363,9 +382,9 @@ public class playgroundBattle {
         Sunchildren.add("Phoenix");
         Mystics.add("Pegasus");
         if (spotter){
-            System.err.println("workingmy-1");
+            // System.err.println("workingmy-1");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 // if (Highlanders.contains(usercharacter.getName())){
                 //     usercharacter.increaseAttack(1.0);;
                 //     usercharacter.increaseDefence(1.0);
@@ -382,7 +401,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Marshland"){
-                System.out.println("i am in marshland");
+                // System.out.println("i am in marshland");
                 if (Marshlanders.contains(mythicalCreature.getName())){
                     mythicalCreature.increaseDefence(2.0);
                     return 0;
@@ -399,7 +418,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Desert"){
-                System.out.println("i am in desert");
+                // System.out.println("i am in desert");
                 if (Marshlanders.contains(mythicalCreature.getName())){
                     mythicalCreature.decreaseHealth(1.0);
                     return 0;
@@ -411,7 +430,6 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
                 if (Mystics.contains(mythicalCreature.getName())){
                     mythicalCreature.increaseAttack(2.0);;
                     return 0;
@@ -419,35 +437,23 @@ public class playgroundBattle {
             }
         }
         else{
-              System.err.println("workingmy-2");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
-                
                 if (Highlanders.contains(mythicalCreature.getName())){
+                    System.out.println();
+                    System.out.println("EXTRA TURN");
+                    System.out.println();
                     double damage = 0.5*(0.2*mythicalCreature.attack);
-                    System.out.println("double damage");
-                        //opponentcharacter.defence -= damage;
+                    damage=playBattle.round(damage);
                     return damage;
                 }
-                
-                // else{
-                //     double health = 0.1*(0.2*usercharacter.attack);
-                //     //String formattedString = String.format("%.1f", health);
-
-                //     // Parse the formatted string back to double
-                //     //health= Double.parseDouble(formattedString);
-                //     // if (Highlanders.contains(usercharacter.getName())){
-                        
-                //     // }
-                //     return health;
-                // }
-                
-                
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
                 if (Mystics.contains(mythicalCreature.getName())){
+                    System.out.println();
+                    System.out.println("HEALS AFTER IT'S TURN");
+                    System.out.println();
                     double hel=0.1*mythicalCreature.getHealth();
+                    hel=playBattle.round(hel);
                     mythicalCreature.increasehealth(hel);
                     return 0;
                 }
@@ -479,9 +485,9 @@ public class playgroundBattle {
        
 
         if (spotter){
-            System.err.println("workingh-1");
+            // System.err.println("workingh-1");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 if (Highlanders.contains(healer.getName())){
                     healer.increaseAttack(1.0);;
                     healer.increaseDefence(1.0);
@@ -498,7 +504,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Marshland"){
-                System.out.println("i am in marshland");
+                // System.out.println("i am in marshland");
                 if (Marshlanders.contains(healer.getName())){
                     healer.increaseDefence(2.0);
                     return 0;
@@ -515,7 +521,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Desert"){
-                System.out.println("i am in desert");
+                // System.out.println("i am in desert");
                 if (Marshlanders.contains(healer.getName())){
                     healer.decreaseHealth(1.0);
                     return 0;
@@ -527,7 +533,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                // System.out.println("i am in arcane");
                 if (Mystics.contains(healer.getName())){
                     healer.increaseAttack(2.0);;
                     return 0;
@@ -535,19 +541,23 @@ public class playgroundBattle {
             }
         }
         else{
-              System.err.println("workingh-2");
+            //   System.err.println("workingh-2");
             if (playground == "Hillcrest"){
-                System.out.println("i am in hillcrest");
+                // System.out.println("i am in hillcrest");
                 // if (healer.getName()!="Medic"){
                 if (Highlanders.contains(healer.getName())){
-                    System.out.println("double heal");
+                    // System.out.println("double heal");
                 //         double damage = 0.5*(0.2*healer.attack) - 0.1*(opponentcharacter.defence);
                 //         //opponentcharacter.defence -= damage;
                 //         return damage;
                 //     }
                 // }
                 // else{
+                    System.out.println();
+                    System.out.println("EXTRA TURN");
+                    System.out.println();
                     double health = 0.1*(0.2*healer.attack);
+                    health=playBattle.round(health);
                     //String formattedString = String.format("%.1f", health);
 
                     // Parse the formatted string back to double
@@ -562,9 +572,13 @@ public class playgroundBattle {
             }
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                // System.out.println("i am in arcane");
                 if (Mystics.contains(healer.getName())){
+                    System.out.println();
+                    System.out.println("HEALS AFTER IT'S TURN");
+                    System.out.println();
                     double hel=0.1*healer.getHealth();
+                    hel=playBattle.round(hel);
                     healer.increasehealth(hel);
                     return 0;
                 }
@@ -575,3 +589,4 @@ public class playgroundBattle {
 
     //-------------------------------------------------------------------------------------------------------------------------
 }
+
