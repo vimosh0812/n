@@ -6,18 +6,18 @@ public class Armour extends Equipment {
 
 class Chainmail extends Armour {
     Chainmail() {
-        super("Chainmail", 100, 0, 5, 10, 0);
+        super("Chainmail", 70, 0, 1, 0, -1);
     }
 }
 
 class Regalia extends Armour {
     Regalia() {
-        super("Regalia", 200, 0, 10, 20, 0);
+        super("Regalia", 105, 0, 1, 0, 0);
     }
 }
 
 class Fleece extends Armour {
     Fleece() {
-        super("Fleece", 300, 0, 15, 30, 0);
+        super("Fleece", 150, 0, 2, 1, 1);
     }
 }
