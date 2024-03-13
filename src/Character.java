@@ -13,6 +13,12 @@ public abstract class Character {
 
     Armour armour;
     Artefact artefact;
+    String RED = "\033[0;31m";
+    String RESET = "\033[0m";   
+    String GREEN = "\033[0;32m";
+    String YELLOW = "\033[0;33m";
+    String BLUE = "\033[0;36m";
+    
 
     Character(String name, int price, double attack, double defence, double health, double speed,String category) {
         this.name = name;
@@ -22,6 +28,7 @@ public abstract class Character {
         this.health = health;
         this.speed = speed;
         this.category = category;
+        
     }
     public void check() {
         check = true;
@@ -47,8 +54,7 @@ public abstract class Character {
         if(isDead()){
             return 0.0;
         }
-        else
-        {
+        else{
         return this.health;
         }
     }
@@ -118,18 +124,19 @@ public abstract class Character {
         
         if (this.health <= 0.0) {
             this.health = 0.0;
-            System.out.println(this.name + " died");
+            System.out.println(RED+this.name + " died"+RESET);
         }
         
     }
 
     public void increasehealth(double health){
         this.health += health;
-        System.out.println(this.name + " got healed to health "+this.health);
+        this.health=roundo(this.health);
+        System.out.println(YELLOW+this.name + " got healed to health "+this.health+RESET);
     }
     public boolean isDead(){
         //System.out.println(this.name + " helath after died "+this.health);
-        return this.health <= 0.0;
+        return this.health<= 0.0;
         
     }
 
@@ -138,31 +145,40 @@ public abstract class Character {
     }
     public void increaseDefence(double defence){
         this.defence += defence;
-        System.out.println(this.name + " got buffed to defence "+this.defence);
+        this.defence=roundo(defence);
+        System.out.println(GREEN+this.name + " got buffed to defence "+this.defence+RESET);
     }
     public void increaseAttack(double attack){
         this.attack += attack;
-        System.out.println(this.name + " got buffed to attack "+this.attack);
+        this.attack=roundo(attack);
+        System.out.println(GREEN+this.name + " got buffed to attack "+this.attack+RESET);
     }
     public void increaseSpeed(double speed){
         this.speed += speed;
-        System.out.println(this.name + " got buffed to speed "+this.speed);
+        System.out.println(GREEN+this.name + " got buffed to speed "+this.speed+RESET);
     }
     public void decreaseDefence(double defence){
         this.defence -= defence;
-        System.out.println(this.name + " got debuffed to defence "+this.defence);
+        System.out.println(BLUE+this.name + " got debuffed to defence "+this.defence+RESET);
     }
     public void decreaseAttack(double attack){
         this.attack -= attack;
-        System.out.println(this.name + " got debuffed to attack "+this.attack);
+        System.out.println(BLUE+this.name + " got debuffed to attack "+this.attack+RESET);
     }
     public void decreaseSpeed(double speed){
         this.speed -= speed;
-        System.out.println(this.name + " got debuffed to speed "+this.speed);
+        System.out.println(BLUE+this.name + " got debuffed to speed "+this.speed+RESET);
     }
     public void decreaseHealth(double health){
         this.health -= health;
-        System.out.println(this.name + " got debuffed to health "+this.health);
+        if (this.health < 0){
+            this.health =0.0;
+        } 
+        System.out.println(BLUE+this.name + " got debuffed to health "+this.health+RESET);
+    }
+
+    public double roundo(double dbl) {
+        return Math.round(dbl * 10.0) / 10.0;
     }
     // public Archer getArcher() {
     //     return archer;
