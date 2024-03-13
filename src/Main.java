@@ -162,7 +162,9 @@ public class Main {
                     System.out.println("1. Play Battle");
                     System.out.println("2. Change Player Name");
                     System.out.println("3. Shop");
-                    System.out.println("4. Back to Menu");
+                    System.out.println("4. View your Army");
+                    System.out.println("5. View your Gold Coins");
+                    System.out.println("6. Back to Menu");
                     System.out.println();
                     System.out.print("Enter your choice: ");
                     int choice = scanner.nextInt();
@@ -179,6 +181,12 @@ public class Main {
                             openShop(user);
                             break;
                         case 4:
+                            System.out.println(user.getArmyComposition());
+                            break;
+                        case 5:
+                            System.out.println("Gold coins: " + user.getGoldCoins());
+                            break;
+                        case 6:
                             return;
                         default:
                             System.out.println("Invalid choice. Please try again.");
