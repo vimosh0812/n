@@ -68,7 +68,7 @@ public class playgroundBattle {
                 }
             }
             if (playground == "Arcane"){
-                System.out.println("i am in arcane");
+                // System.out.println("i am in arcane");
                 if (Mystics.contains(archer.getName())){
                     archer.increaseAttack(2.0);;
                     return 0;
@@ -589,4 +589,3 @@ public class playgroundBattle {
 
     //-------------------------------------------------------------------------------------------------------------------------
 }
-
