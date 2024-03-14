@@ -71,3 +71,13 @@ When signing up or creating demo data, players can select a home ground for thei
 - Phoenix
 - Pegasus
 
+  
+## Gameplay
+Players can challenge each other to combat, with battles occurring at the home ground of the challenged player. The game displays opponent statistics, allowing players to decide whether to challenge them or skip to the next player.
+
+## Customization and Progression
+Players can customize characters with armor and artifacts, although these details are not displayed during battles. Additionally, players can progress and earn gold coins through battles.
+
+## Technical Details
+- Attack, defence, health, and speed values are calculated to the nearest first decimal place.
+- Gold coin calculations are rounded to the nearest whole number.
