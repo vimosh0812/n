@@ -9,7 +9,7 @@ public class Main {
     private static int userID = 1000;
 
     private static void addDemoData() {
-        
+
         User user0 = new User("whitewolf", "GeraltofRivia", 220668);
         user0.setHomeland(new Marshland());
         user0.createArmy(new Ranger(), new Squire(), new Warlock(), new Medic(), new Dragon());
@@ -17,33 +17,30 @@ public class Main {
         user0.getHealer().setArtefact(new Amulet());
         user0.setGoldcoins(215);
         user0.setXP(32);
-
-        user0.createArmy(new Shooter(), new Squire(), new Enchanter(), new Medic(), new Basilisk());
-        user0.subtractGoldCoins(480);
         users.add(user0);
 
         User user1 = new User("vimosh", "VIMOSH", 220667);
         user1.setHomeland(new Hillcrest());
         user1.createArmy(new Shooter(), new Squire(), new Enchanter(), new Medic(), new Basilisk());
-        user1.subtractGoldCoins(480);
+        user0.setGoldcoins(200);
         users.add(user1);
 
         User user2 = new User("abishan", "ABISHAN", 220014);
         user2.setHomeland(new Marshland());
         user2.createArmy(new Ranger(), new Cavalier(), new Illusionist(), new Saint(), new Dragon());
-        user2.subtractGoldCoins(450);
+        user0.setGoldcoins(150);
         users.add(user2);
 
         User user3 = new User("nived", "NIVED", 220436);
         user3.setHomeland(new Desert());
         user3.createArmy(new Sunfire(), new Swiftblade(), new Conjurer(), new Soother(), new Hydra());
-        user3.subtractGoldCoins(430);
+        user0.setGoldcoins(300);
         users.add(user3);
 
         User user4 = new User("aadhi", "AADHI", 220001);
         user4.setHomeland(new Arcane());
         user4.createArmy(new Zing(), new Templar(), new Eldritch(), new Lightbringer(), new Pegasus());
-        user4.subtractGoldCoins(400);
+        user0.setGoldcoins(180);
         users.add(user4);
     }
     
@@ -64,15 +61,16 @@ public class Main {
                         "        |___/                               |___/                      \r" + //
                         "" + RESET);
         System.out.println("                                                        From CODE A.N.V");
-        System.out.println(YELLOW+" ______________________________________________________|_._._._._._._._._._.\r\n" + //
-                        " \\_____________________________________________________|_#_#_#_#_#_#_#_#_#_|\r\n" + //
-                        "                                                       l"+RESET);  
+        System.out.println(YELLOW+" __________________________________________________|_._._._._._._._._._.\r\n" + //
+                        " \\_________________________________________________|_#_#_#_#_#_#_#_#_#_|\r\n" + //
+                        "                                                   l"+RESET);  
         while (true) {
             addDemoData();
             System.out.println();
 
-            System.out.println(YELLOW + "Welcome to the Game\n" + RESET);
-            System.out.println("Main Menu:" );
+            
+            System.out.println(YELLOW + "                          Welcome to the Game\n" + RESET);
+            System.out.println("------------------------------ Main Menu ------------------------------");
             System.out.println();
             System.out.println(GREEN +"1. Sign Up");
             System.out.println("2. Login");
@@ -80,24 +78,28 @@ public class Main {
             System.out.println();
             System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    signUp();
-                    break;
-                case 2:
-                    login();
-                    break;
-                case 3:
-                    System.out.println(RED + "Exiting..." + RESET);
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println();
-                    System.out.println(RED + "Invalid choice. Please try again." + RESET);
-                    System.out.println();
+            try {
+                int choice = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                
+                switch (choice) {
+                    case 1:
+                        signUp();
+                        break;
+                    case 2:
+                        login();
+                        break;
+                    case 3:
+                        System.out.println(RED + "Exiting..." + RESET);
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println();
+                        System.out.println(RED + "Invalid choice. Please try again." + RESET);
+                        System.out.println();
+                }
+            } catch (Exception e) {
+                System.out.println(RED +"Invalid choice enter ");
             }
         }
     }
@@ -108,7 +110,7 @@ public class Main {
         String CYAN = "\u001B[36m";
         String RED = "\u001B[31m";
 
-        System.out.println();
+        System.out.println("\n----------------------------- SignUp Menu -----------------------------\n");
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
 
@@ -123,8 +125,7 @@ public class Main {
         String playerName = scanner.nextLine();
         System.out.println();
         // new----------------------------------------------------
-        System.out.println(CYAN + "Select your home ground for battles:");
-        System.out.println("-------------------------------------");
+        System.out.println(CYAN + "Select your home ground for battles \n");
         System.out.println("1. Hillcrest" );
         System.out.println("2. Marshland");
         System.out.println("3. Desert");
@@ -183,7 +184,7 @@ public class Main {
         String YELLOW = "\u001B[33m";
         String CYAN = "\u001B[36m";
         String RED = "\u001B[31m";
-
+        System.out.println("\n----------------------------- Login Menu ------------------------------\n");
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
         System.out.println();
@@ -280,12 +281,14 @@ public class Main {
 
     private static void playBattle(User user, User opponent) 
     {
+        String RESET = "\u001B[0m";
+        String YELLOW = "\u001B[33m";
         
-        // startBattle(user, opponent);
+        System.out.println("\n------------------------------- Battle --------------------------------\n");
         if (!user.hasCharacterOfCategory(Archer.class) || !user.hasCharacterOfCategory(Knight.class) ||!user.hasCharacterOfCategory(Mage.class) || !user.hasCharacterOfCategory(Healer.class) || !user.hasCharacterOfCategory(MythicalCreature.class)) {
         System.out.println("You need to have one character from each category before proceeding to the shop.");
         buyArmy(user);} // Redirect to buy characters
-        System.out.println(user.getArmyComposition());
+        System.out.println(YELLOW +user.getArmyComposition()+RESET);
         System.out.println();
         System.out.println("Starting battle in...");
         countdown();
@@ -337,18 +340,18 @@ public class Main {
         String YELLOW = "\u001B[33m";
         String CYAN = "\u001B[36m";
         String RED = "\u001B[31m";
+        System.out.println("\n---------------------------- Artefact Shop-----------------------------\n");
         System.out.println(YELLOW + "Gold left: " + user.getGoldCoins() + RESET);
         
         // Choose a character to buy artefact for
         System.out.println(CYAN + "Choose a character to buy artefact for\n");
-        System.out.println("--------------------------------------");
         System.out.println("1. Archer");
         System.out.println("2. Knight");
         System.out.println("3. Mage");
         System.out.println("4. Healer");
         System.out.println("5. Mythical Creature");
-        System.out.println("6. Cancel");
-        System.out.println("--------------------------------------"+RESET);
+        System.out.println("6. Cancel\n");
+        System.out.println(RESET);
         int characterChoice = scanner.nextInt();
         scanner.nextLine(); // Consume newline
         
@@ -459,6 +462,7 @@ public class Main {
         String YELLOW = "\u001B[33m";
         String PURPLE = "\u001B[35m";
         String RED = "\u001B[31m";
+        System.out.println("\n----------------------------- Armour Shop------------------------------\n");
 
         System.out.println(YELLOW + "Gold left: " + user.getGoldCoins() + RESET);
         System.out.println(GREEN + "\nChoose a character to buy armor for:\n1. Archer\n2. Knight\n3. Mage\n4. Healer\n5. Mythical Creature \n6. Back to Shop\n"+RESET);
@@ -611,6 +615,8 @@ public class Main {
     }
 
     private static void changePlayerName(User user) {
+        System.out.println("---------------------------- Change Name ------------------------------\n");
+        System.out.println("Current player name: " + user.getPlayerName() + "\n");
         System.out.print("Enter new player name: ");
         String newPlayerName = scanner.nextLine();
         user.setPlayerName(newPlayerName);
@@ -627,8 +633,8 @@ public class Main {
         String CYAN = "\u001B[36m";
         String RED = "\u001B[31m";
 
-        System.out.println(GREEN +"Welcome to the Shop!"+RESET);
-        System.out.println("--------------------");
+        System.out.println("-------------------------------- Shop ---------------------------------\n");
+        System.out.println(GREEN +"                          Welcome to the Shop!"+RESET);
         System.out.println();
         System.out.println("Your Army Composition:");
         System.out.println(YELLOW+user.getArmyComposition());
@@ -692,6 +698,7 @@ public class Main {
     }
     
     private static void sellArmy(User user) {
+        System.out.println("------------------------------ Army Shop------------------------------");
         String RESET = "\u001B[0m";
         String GREEN = "\u001B[32m";
         String RED = "\u001B[31m";
@@ -755,16 +762,15 @@ public class Main {
         String YELLOW = "\u001B[33m";
         String RED = "\u001B[31m";
         Scanner scanner = new Scanner(System.in);
+        System.out.println("\n------------------------------ Army Shop ------------------------------\n");
     
         while (true) {
             if (user.hasCharacterOfCategory(Archer.class) && user.hasCharacterOfCategory(Knight.class) && user.hasCharacterOfCategory(Mage.class) && user.hasCharacterOfCategory(Healer.class) && user.hasCharacterOfCategory(MythicalCreature.class)) {
                 // If the user already has characters in each category, prompt them to sell before buying more
                 System.out.println(RED +"You need to sell your existing characters before buying new ones."+RESET);
                 System.out.println();
-                System.out.println("----------------------------");
-                System.out.println();
                 System.out.println(user.getArmyComposition());
-                System.out.println("----------------------------");
+                System.out.println();
                 System.out.println("Redirecting to sell option...");
                 loading();
                 sellItems(user);
@@ -877,61 +883,56 @@ public class Main {
         switch (category.getSimpleName()) {
             case "Archer":
                 System.out.println(BLUE + "Choose an Archer\n");
-                System.out.println("----------------");
                 System.out.println("1. Shooter - 80 gc");
                 System.out.println("2. Ranger - 115 gc");
                 System.out.println("3. Sunfire - 160 gc");
                 System.out.println("4. Zing - 200 gc");
                 System.out.println("5. Sagittarius - 230 gc");
                 System.out.println("6. Back to Shop");
-                System.out.println("----------------\n"+RESET);
+                System.out.println("\n"+RESET);
                 break;
 
             case "Knight":
                 System.out.println(BLUE +"Choose a Knight\n");
-                System.out.println("----------------");
                 System.out.println("1. Squire - 85 gc");
                 System.out.println("2. Cavalier - 110 gc");
                 System.out.println("3. Templar - 155 gc");
                 System.out.println("4. Zoro - 180 gc");
                 System.out.println("5. Swiftblade - 250 gc");
-                System.out.println("6. Back to Shop\n"+RESET);
+                System.out.println("\n"+RESET);
                 break;
 
             case "Mage":
                 System.out.println(BLUE+"Choose a Mage\n");
-                System.out.println("--------------");
                 System.out.println("1. Warlock - 100 gc");
                 System.out.println("2. Illusionist - 120 gc");
                 System.out.println("3. Enchanter - 160 gc");
                 System.out.println("4. Conjurer - 195 gc");
                 System.out.println("5. Eldritch - 270 gc");
                 System.out.println("6. Back to Shop");
-                System.out.println("----------------\n"+RESET);
+                System.out.println("\n"+RESET);
                 break;
 
             case "Healer":
                 System.out.println(BLUE +"Choose a Healer\n");
-                System.out.println("----------------");
                 System.out.println("1. Soother - 95 gc");
                 System.out.println("2. Medic - 125 gc");
                 System.out.println("3. Alchemist - 150 gc");
                 System.out.println("4. Saint - 200 gc");
                 System.out.println("5. Lightbringer - 260 gc");
                 System.out.println("6. Back to Shop");
-                System.out.println("----------------\n" +RESET);
+                System.out.println("\n" +RESET);
                 break;
 
             case "MythicalCreature":
                 System.out.println(BLUE + "Choose a Mythical Creature\n");
-                System.out.println("----------------");
                 System.out.println("1. Dragon - 120 gc");
                 System.out.println("2. Basilisk - 165 gc");
                 System.out.println("3. Hydra - 205 gc");
                 System.out.println("4. Pegasus - 340 gc");
                 System.out.println("5. Phoenix - 275 gc");
                 System.out.println("6. Back to Shop");
-                System.out.println("----------------\n" +RESET);
+                System.out.println("\n" +RESET);
                 break;
 
             default:
@@ -947,7 +948,7 @@ public class Main {
             if (characterChoice >= 1 && characterChoice <= 6) {
                 break;
             } else {
-                System.out.println("Invalid choice.");
+                System.out.println("Invalid choice\n");
             }
         }
     
