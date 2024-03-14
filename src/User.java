@@ -26,8 +26,8 @@ public class User {
         this.username = username;
         this.playerName = playerName;
         this.userID = userID;
-        this.goldCoins = 500; // Initialize with 0 gold coins
-        this.XP = 0; // Initialize with 0 XP
+        this.goldCoins = 1000; // Initialize with 0 gold coins
+        this.XP = 1; // Initialize with 0 XP
     }
 
     public void addToArmy(Character character) {
@@ -45,10 +45,9 @@ public class User {
         this.healer = healer;
         this.mythicalCreature = mythicalCreature;
 
-
-
     }
-    public void setGoldcoins(int goldCoins) {
+    public void setGoldcoins(int goldCoins) 
+    {
         this.goldCoins = goldCoins;
     }
 
@@ -318,6 +317,8 @@ public class User {
         return this.character;
     }
     
-
+    public void setXP(int XP) {
+        this.XP = XP;
+    }
 
 }
