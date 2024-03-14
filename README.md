@@ -7,7 +7,7 @@ Mystic Mayhem is an exciting turn-based strategy game where players build and ba
 ## Team Members Details
 - <span style="color:blue">220001C - AADITHYAN M.D.</span> 
 - <span style="color:blue">220014T - ABISHAN V.</span> 
-- <span style="color:blue">220436 - NIVEDSHANKER K.</span> 
+- <span style="color:blue">220436M - NIVEDSHANKER K.</span> 
 - <span style="color:blue">220667V - VIMOSH V.</span> 
 
 ## Features
