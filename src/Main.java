@@ -22,25 +22,25 @@ public class Main {
         User user1 = new User("vimosh", "VIMOSH", 220667);
         user1.setHomeland(new Hillcrest());
         user1.createArmy(new Shooter(), new Squire(), new Enchanter(), new Medic(), new Basilisk());
-        user0.setGoldcoins(200);
+        user1.setGoldcoins(200);
         users.add(user1);
 
         User user2 = new User("abishan", "ABISHAN", 220014);
         user2.setHomeland(new Marshland());
         user2.createArmy(new Ranger(), new Cavalier(), new Illusionist(), new Saint(), new Dragon());
-        user0.setGoldcoins(150);
+        user2.setGoldcoins(150);
         users.add(user2);
 
         User user3 = new User("nived", "NIVED", 220436);
         user3.setHomeland(new Desert());
         user3.createArmy(new Sunfire(), new Swiftblade(), new Conjurer(), new Soother(), new Hydra());
-        user0.setGoldcoins(300);
+        user3.setGoldcoins(300);
         users.add(user3);
 
         User user4 = new User("aadhi", "AADHI", 220001);
         user4.setHomeland(new Arcane());
         user4.createArmy(new Zing(), new Templar(), new Eldritch(), new Lightbringer(), new Pegasus());
-        user0.setGoldcoins(180);
+        user4.setGoldcoins(180);
         users.add(user4);
     }
     
