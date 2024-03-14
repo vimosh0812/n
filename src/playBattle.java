@@ -45,12 +45,6 @@ public class playBattle {
     String minVariable2="";
     String minVariable3="";
 
-    // Boolean archdead = false;
-    // Boolean magedead = false;
-    // Boolean knightdead = false;
-    // Boolean healerdead = false;
-    // Boolean mythicaldead = false;
-
     String Userchar="";
     String Oppchar="";
 
@@ -79,40 +73,70 @@ public class playBattle {
             String YELLOW = "\033[0;33m";  // YELLOW
             String CYAN = "\033[0;36m";  // CYAN
             String RED = "\033[0;31m";  // RED
+            String ORANGE = "\033[0;35m";  // PINK
+            String BLUE = "\033[0;34m";  // BLUE
 
         String homeland=opponent.getPlayground().getName(); 
         while(turn<=20){
-            System.out.println(CYAN+user.getPlayerName()+"'s turn - " + (turn/2+1)+RESET);
+            System.out.println(CYAN+"\n"+user.getPlayerName()+"'s turn - " + (turn/2+1)+RESET);
+            System.out.println("----------------------\n");
+
             Attack(user, opponent,homeland);
             turn++;
-            System.out.println("----------------------"); 
-            System.out.println(CYAN+opponent.getPlayerName()+"'s turn - " + turn/2+RESET);
+            
+            System.out.println(ORANGE+"\n"+opponent.getPlayerName()+"'s turn - " + turn/2+RESET);
+            System.out.println("----------------------\n");
             Attack(opponent, user,homeland);
             turn++;
-            System.out.println("----------------------");
 
-            if(opponentcount==5){
-                System.out.println(user.getPlayerName() +" has won the match");
+            if(opponentcount == 5){
+
+                System.out.println(GREEN +user.getPlayerName() +" has won the match");
+                System.out.println("\r\n" + //
+                                        " __     _____ ____ _____ ___  ______   __\r\n" + //
+                                        " \\ \\   / /_ _/ ___|_   _/ _ \\|  _ \\ \\ / /\r\n" + //
+                                        "  \\ \\ / / | | |     | || | | | |_) \\ V / \r\n" + //
+                                        "   \\ V /  | | |___  | || |_| |  _ < | |  \r\n" + //
+                                        "    \\_/  |___\\____| |_| \\___/|_| \\_\\|_|  \r\n" + //
+                                        "                                         \r\n" + //
+                                        "" + RESET);
                 user.increaseXP(1);
+
                 user.addGoldCoins(opponent.getGoldCoins()*0.1);
                 opponent.addGoldCoins(-(opponent.getGoldCoins()*0.1));
-                System.out.println(user.getPlayerName()+"'s remaing coins "+user.getGoldCoins());
-                System.out.println(opponent.getPlayerName()+"'s remaing coins "+opponent.getGoldCoins());
+                System.out.println(user.getPlayerName()+"'s remaing coins "+YELLOW +user.getGoldCoins()+RESET);
+                System.out.println(opponent.getPlayerName()+"'s remaing coins "+YELLOW +opponent.getGoldCoins()+RESET);
                 break;
             }
             else if(playercount==5){
-                System.out.println(opponent.getPlayerName() +" has won the match");
+                System.out.println(RED +opponent.getPlayerName() +" has won the match");
+                System.out.println("\r\n" + //
+                                        "  ____  _____ _____ _____    _  _____ \r\n" + //
+                                        " |  _ \\| ____|  ___| ____|  / \\|_   _|\r\n" + //
+                                        " | | | |  _| | |_  |  _|   / _ \\ | |  \r\n" + //
+                                        " | |_| | |___|  _| | |___ / ___ \\| |  \r\n" + //
+                                        " |____/|_____|_|   |_____/_/   \\_\\_|  \r\n" + //
+                                        "                                      \r\n" + //
+                                        ""+ RESET);
                 opponent.increaseXP(1);
                 opponent.addGoldCoins(user.getGoldCoins()*0.1);
                 user.addGoldCoins(-(user.getGoldCoins()*0.1));
-                System.out.println(user.getPlayerName()+"'s remaing coins "+user.getGoldCoins());
-                System.out.println(opponent.getPlayerName()+"'s remaing coins "+opponent.getGoldCoins());
+                System.out.println(user.getPlayerName()+"'s remaing coins "+YELLOW +user.getGoldCoins()+RESET);
+                System.out.println(opponent.getPlayerName()+"'s remaing coins "+YELLOW +opponent.getGoldCoins()+RESET);
                 break;
             }
             else if (turn==21){
-                System.out.println("battle is draw");
-                System.out.println(user.getPlayerName()+"'s remaing coins "+user.getGoldCoins());
-                System.out.println(opponent.getPlayerName()+"'s remaing coins "+opponent.getGoldCoins());
+                System.out.println(BLUE +"Battle is draw");
+                System.out.println("\r\n" + //
+                                        "  ____  ____      ___        __\r\n" + //
+                                        " |  _ \\|  _ \\    / \\ \\      / /\r\n" + //
+                                        " | | | | |_) |  / _ \\ \\ /\\ / / \r\n" + //
+                                        " | |_| |  _ <  / ___ \\ V  V /  \r\n" + //
+                                        " |____/|_| \\_\\/_/   \\_\\_/\\_/   \r\n" + //
+                                        "                               \r\n" + //
+                                        "" + RESET);
+                System.out.println(user.getPlayerName()+"'s remaing coins "+ YELLOW +user.getGoldCoins()+RESET);
+                System.out.println(opponent.getPlayerName()+"'s remaing coins "+YELLOW +opponent.getGoldCoins()+RESET);
             }
         }
          
@@ -132,10 +156,13 @@ public class playBattle {
 
 
     private void Attack(User user, User opponent,String homeland){
+        String CYAN = "\033[0;36m";  // CYAN
+        String RESET = "\033[0m";  // Text Reset
         int playcount=0;
         
         if(count==1){
-            
+            // display where the batlle is taking place
+            System.out.println("The battle is taking place in "+CYAN +homeland+RESET);
             System.out.println();
             playgroundBattle.buffcharacter(homeland, user.getArcher(), true);
             playgroundBattle.buffcharacter(homeland, user.getKnight(), true);
@@ -251,14 +278,15 @@ public class playBattle {
              Oppchar=opponent.getMythicalCreature().getName();
         }
 
-        System.out.println(user.getPlayerName()+"'s "+Userchar+" is fighting with "+opponent.getPlayerName()+"'s "+Oppchar);
+        System.out.println(user.getPlayerName()+"'s "+ CYAN +Userchar+ RESET+" is fighting with "+opponent.getPlayerName()+"'s "+CYAN +Oppchar + RESET);
         double damage;
 
 
         if (maxVariable!="H"){
             damage = (0.5*(Attackuser)) - (0.1*(Defenceopp));
             damage = round(damage);
-            System.out.println("damage: "+damage);
+            String RED = "\033[0;31m";  // RED
+            System.out.println(RED +"damage: "+RESET + damage); 
 
             if (minVariable == "A"){
                 opponent.getArcher().getdamage(damage);
